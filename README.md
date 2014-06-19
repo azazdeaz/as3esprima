@@ -1,5 +1,3 @@
- \- under construction - 
+Experimental version of [Esprima](https://github.com/ariya/esprima) for ActionScript 3 support
 
-Modified (hacked) version of [Esprima](https://github.com/ariya/esprima) for parsing AS3 source. 
-
-Note: It's don't support the as3 namespaces.
+[Demos here](http://azazdeaz.github.io/as3esprima/demo/parse.html)
