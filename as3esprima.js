@@ -3228,28 +3228,32 @@ parseStatement: true, parseSourceElement: true */
     }
     
     function parsePackage() {//AS3
-        var name = '', body, token;
+        var name = null, body, token;
 
         delegate.markStart();
 
         expectKeyword('package');
+
+        if (!match('{')) {
+
+            name = '';
         
-        while (index < length) {
-            token = lex();
+            while (index < length) {
+                token = lex();
 
-            if (token.type !== Token.Identifier) {
-                throwUnexpected(token);
-            }
+                if (token.type !== Token.Identifier) {
+                    throwUnexpected(token);
+                }
 
-            name += token.value;
-            
-            if (match('.')) {
-                lex();
-                name += ".";
-            } else {
-                break;
+                name += token.value;
+                
+                if (match('.')) {
+                    lex();
+                    name += ".";
+                } else {
+                    break;
+                }
             }
-            
         }
         
         body = parseClassSourceElements();
