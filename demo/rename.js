@@ -23,7 +23,7 @@
 */
 
 /*jslint browser:true sloppy:true plusplus:true */
-/*global esrefactor: true, esprima:true, editor: true, require:true */
+/*global esrefactor: true, as3esprima:true, editor: true, require:true */
 
 var options, parseTimer, code, syntax, context, cursorpos, identification;
 
@@ -115,7 +115,7 @@ function handleRename() {
 
     try {
         new_code = editor.getText();
-        new_tokens = esprima.parse(new_code, options).tokens;
+        new_tokens = as3esprima.parse(new_code, options).tokens;
 
         // Locate the token corresponding to the renamed identifier.
         index = -1;
@@ -143,7 +143,7 @@ function handleRename() {
                 context.setCode(code);
                 renamed = context.rename(identification, token.value);
                 if (renamed) {
-                    new_tokens = esprima.parse(renamed, options).tokens;
+                    new_tokens = as3esprima.parse(renamed, options).tokens;
                     cursorpos = new_tokens[index].range[1] - offset;
                     editor.setText(renamed);
                     editor.setCaretOffset(cursorpos);
@@ -174,7 +174,7 @@ function parse() {
         id('info').innerHTML = 'Ready';
         id('info').setAttribute('class', 'alert-box secondary');
         identification = null;
-        syntax = esprima.parse(code, options);
+        syntax = as3esprima.parse(code, options);
         context.setCode(syntax);
     } catch (e) {
         id('info').innerHTML = e.toString();

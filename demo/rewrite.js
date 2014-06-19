@@ -23,7 +23,7 @@
 */
 
 /*jslint browser:true */
-/*global esprima:true, escodegen:true, require:true */
+/*global as3esprima:true, escodegen:true, require:true */
 
 function id(i) {
     'use strict';
@@ -78,7 +78,7 @@ function sourceRewrite() {
     };
 
     try {
-        syntax = window.esprima.parse(code, { raw: true, tokens: true, range: true, comment: true });
+        syntax = window.as3esprima.parse(code, { raw: true, tokens: true, range: true, comment: true });
         syntax = window.escodegen.attachComments(syntax, syntax.comments, syntax.tokens);
         code = window.escodegen.generate(syntax, option);
         window.editor.setText(code);

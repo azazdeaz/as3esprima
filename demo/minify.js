@@ -123,7 +123,7 @@ function minify() {
 
     try {
         before = code.length;
-        syntax = window.esprima.parse(code, { raw: true, loc: true });
+        syntax = window.as3esprima.parse(code, { raw: true, loc: true });
         syntax = obfuscate(syntax);
         code = window.escodegen.generate(syntax, option);
         after = code.length;

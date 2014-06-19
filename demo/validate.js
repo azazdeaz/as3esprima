@@ -1,5 +1,5 @@
 /*jslint sloppy:true browser:true */
-/*global esprima:true, require:true */
+/*global as3esprima:true, require:true */
 var validateId;
 
 function validate(delay) {
@@ -19,7 +19,7 @@ function validate(delay) {
         result = document.getElementById('info');
 
         try {
-            syntax = esprima.parse(code, { tolerant: true, loc: true });
+            syntax = as3esprima.parse(code, { tolerant: true, loc: true });
             errors = syntax.errors;
             if (errors.length > 0) {
                 result.innerHTML = 'Invalid code. Total issues: ' + errors.length;

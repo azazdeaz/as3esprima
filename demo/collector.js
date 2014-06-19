@@ -24,7 +24,7 @@
 */
 
 /*jslint browser:true */
-/*global esprima:true, require:true */
+/*global as3esprima:true, require:true */
 
 var timerId;
 
@@ -148,7 +148,7 @@ function collectRegex() {
             occurrences = [];
             try {
                 result = [];
-                visit(window.esprima.parse(code, { loc: true, range: true }), collect);
+                visit(window.as3esprima.parse(code, { loc: true, range: true }), collect);
 
                 if (result.length > 0) {
                     id('info').innerHTML = 'Total regular expressions: ' + result.length;

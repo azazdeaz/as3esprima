@@ -1,5 +1,5 @@
 /*jslint sloppy:true browser:true */
-/*global esprima:true */
+/*global as3esprima:true */
 var compareId;
 function compare() {
     if (compareId) {
@@ -104,13 +104,13 @@ function compare() {
         setText(expr, '');
 
         try {
-            left = esprima.parse((typeof a.innerText === 'string') ? a.innerText : a.textContent);
+            left = as3esprima.parse((typeof a.innerText === 'string') ? a.innerText : a.textContent);
         } catch (e_left) {
             a.setAttribute('class', 'lightred');
         }
 
         try {
-            right = esprima.parse((typeof b.innerText === 'string') ? b.innerText : b.textContent);
+            right = as3esprima.parse((typeof b.innerText === 'string') ? b.innerText : b.textContent);
         } catch (e_right) {
             b.setAttribute('class', 'lightred');
         }

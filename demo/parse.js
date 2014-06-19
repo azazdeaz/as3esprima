@@ -25,7 +25,7 @@
 */
 
 /*jslint sloppy:true browser:true */
-/*global esprima:true, YUI:true, require:true */
+/*global as3esprima:true, YUI:true, require:true */
 
 var parseId, tree;
 
@@ -184,10 +184,10 @@ function parse(delay) {
         id('info').className = 'alert-box secondary';
 
         try {
-            result = esprima.parse(code, options);
+            result = as3esprima.parse(code, options);
             str = JSON.stringify(result, adjustRegexLiteral, 4);
             options.tokens = true;
-            id('tokens').value = JSON.stringify(esprima.parse(code, options).tokens,
+            id('tokens').value = JSON.stringify(as3esprima.parse(code, options).tokens,
                 adjustRegexLiteral, 4);
             if (window.updateTree) {
                 window.updateTree(result);

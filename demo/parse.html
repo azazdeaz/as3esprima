@@ -94,7 +94,28 @@ textarea {
 
 <pre id="editor" spellcheck="false" style="height: 350px">
 // Life, Universe, and Everything
-var answer = 6 * 7;
+package foo {
+  import flash.display.*; 
+   
+  public class FooBar extends Foo {
+   
+    public static const FOBAR:uint = 76;
+    private var foo:Boolean;
+     
+    override protected function qux(msg:String = '\'allo'):void {
+      trace(msg);
+    }
+     
+    internal function get bar():Bar {
+      return new Bar(param);
+    }
+     
+    public function set foo(val:uint = 7):void
+    {
+      foo = val;
+    }
+  }
+};
 </pre>
       <div id="info" class="alert-box secondary">Ready.</div>
 
@@ -154,7 +175,7 @@ var answer = 6 * 7;
     </div>
   </div>
 
-<script src="../esprima.js"></script>
+<script src="../as3esprima.js"></script>
 <script src="../test/3rdparty/escodegen.browser.js"></script>
 <script src="../test/3rdparty/esmangle.browser.js"></script>
 <script src="../assets/orion/built-editor.min.js"></script>

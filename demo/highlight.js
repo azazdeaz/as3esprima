@@ -24,7 +24,7 @@
 */
 
 /*jslint browser:true sloppy:true plusplus:true */
-/*global esrefactor: true, esprima:true, editor: true, require:true */
+/*global esrefactor: true, as3esprima:true, editor: true, require:true */
 
 var parseTimer, syntax, context;
 
@@ -44,7 +44,7 @@ function parse() {
         editor.showOccurrences([]);
         id('info').innerHTML = 'Ready';
         id('info').setAttribute('class', 'alert-box secondary');
-        syntax = esprima.parse(code, {
+        syntax = as3esprima.parse(code, {
             loc: true,
             range: true,
             tolerant: true
